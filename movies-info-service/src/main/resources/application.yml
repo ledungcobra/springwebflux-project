@@ -1,0 +1,37 @@
+spring:
+  profiles:
+    active: local
+---
+spring:
+  config:
+    activate:
+      on-profile: local
+  data:
+    mongodb:
+      uri: mongodb://root:root@127.0.0.1:27017/localhost?authMechanism=SCRAM-SHA-256
+---
+spring:
+  config:
+    activate:
+      on-profile: non-prod
+  data:
+    mongodb:
+      host: localhost
+      port: 27017
+      database: localhost
+
+---
+spring:
+  config:
+    activate:
+      on-profile: prod
+  data:
+    mongodb:
+      host: localhost
+      port: 27017
+      database: localhost
+---
+logging:
+  level:
+    root: info
+
